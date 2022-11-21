@@ -13,6 +13,14 @@ typedef enum
     COLUMN_SEPARATOR_NOT_FOUND
 } ERRCODE;
 
-ERRCODE csv_read(char **data, const char *filename, char separator_line, char separator_column);
+typedef struct
+{
+    char *file_string;
+    size_t number_of_rows;
+    size_t number_of_columns;
+} CSVFILE;
+
+ERRCODE csv_read(CSVFILE *data, const char *filename, char separator_line, char separator_column);
+void csv_free(CSVFILE *data);
 
 #endif
