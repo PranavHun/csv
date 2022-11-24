@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 
+set(CMAKE_C_STANDARD 99)
+
 project(CSV)
 
 add_library(csv STATIC csv.c csv.h)
