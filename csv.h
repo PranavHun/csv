@@ -6,14 +6,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef enum {
+typedef enum
+{
   OKAY,
   FILE_NOT_FOUND,
   LINE_SEPARATOR_NOT_FOUND,
   COLUMN_SEPARATOR_NOT_FOUND
 } ERRCODE;
 
-typedef struct {
+typedef struct
+{
   size_t number_of_rows;
   size_t number_of_cells;
   size_t number_of_columns;
@@ -24,6 +26,6 @@ typedef struct {
 ERRCODE csv_read(CSVFILE *data, const char *filename, char separator_line,
                  char separator_column);
 void csv_free(CSVFILE *data);
-void csv_read_cell(CSVFILE *data, size_t row, size_t col, char *value);
+char *csv_read_cell_to_str(CSVFILE *data, size_t row, size_t col);
 
 #endif
